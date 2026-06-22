@@ -1,67 +1,84 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Projectile Motion Simulator</title>
-  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <main>
-    <h1>Projectile Motion Simulator</h1>
-    <p>Adjust parameters and watch the projectile(s) fly!</p>
-    <p>Scale: 1 m = 50 px</p>
-
-
-
-
-    <h2>Projectile 1</h2>
-    <div>
-      <label for="velocitySlider">Initial Velocity 1 (pixels/s): <span id="velocityValue">100</span></label><br />
-      <input type="range" id="velocitySlider" min="10" max="300" value="100" />
-    </div>
-
-
-    <div>
-      <label for="angleSlider">Launch Angle 1 (degrees): <span id="angleValue">45</span></label><br />
-      <input type="range" id="angleSlider" min="5" max="90" value="45" />
-    </div>
-
-
-    <hr>
-
-
-    <h2>Projectile 2</h2>
-    <div>
-      <label for="velocity2Slider">Initial Velocity 2 (pixels/s): <span id="velocity2Value">120</span></label><br />
-      <input type="range" id="velocity2Slider" min="10" max="300" value="120" />
-    </div>
-
-
-    <div>
-      <label for="angle2Slider">Launch Angle 2 (degrees): <span id="angle2Value">60</span></label><br />
-      <input type="range" id="angle2Slider" min="5" max="90" value="60" />
-    </div>
-
-
-    <div class="button-row">
-      <div class="left-buttons">
-        <button id="resetButton">Reset Simulation</button>
-        <button id="toggleRealTimeButton">Real Time: ON</button>
-      </div>
-      <div class="right-buttons">
-        <button id="zoomInButton">Zoom In</button>
-        <button id="zoomOutButton">Zoom Out</button>
-        <button id="resetZoomButton">Reset Zoom</button>
-      </div>
-    </div>
-
-
-    <p>Press SPACE to launch/reset projectiles</p>
-    <p id="zoomDisplay">Zoom: 1.00×</p>
-  </main>
-
-
-  <script src="sketch.js"></script>
-</body>
-</html>
+/* General Page Styling for Dark Mode */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212;
+    margin: 0;
+    padding: 20px;
+    color: #e0e0e0;
+  }
+  
+  main {
+    max-width: 960px;
+    margin: 0 auto;
+    background: #1e1e1e;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 100, 255, 0.3);
+    text-align: left;
+  }
+  
+  h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #ffffff;
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 22px;
+    color: #90caf9;
+    margin-top: 25px;
+  }
+  
+  p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #ccc;
+  }
+  
+  label {
+    display: block;
+    margin: 12px 0 6px;
+    font-weight: bold;
+    color: #bbb;
+  }
+  
+  input[type="range"] {
+    width: 100%;
+    accent-color: #64b5f6;
+    margin-bottom: 10px;
+    background-color: #333;
+    border-radius: 4px;
+  }
+  
+  button {
+    background-color: #64b5f6;
+    color: #121212;
+    border: none;
+    padding: 10px 16px;
+    margin: 5px 5px 10px 0;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  button:hover {
+    background-color: #90caf9;
+  }
+  
+  button:focus {
+    outline: none;
+  }
+  
+  canvas {
+    border: 2px solid #64b5f6;
+    margin: 20px auto 0 auto;
+    display: block;
+    border-radius: 6px;
+    background-color: #121212;
+  }
+  
+  div {
+    margin-bottom: 12px;
+  }
