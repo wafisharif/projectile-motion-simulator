@@ -175,8 +175,6 @@ function stepProjectile(p, dt) {
 
 function draw() {
   background(18);
-  stroke(100);
-  line(0, groundYPixels, width, groundYPixels);
 
   // --- advance physics, only while running ---
   if (simState === "running") {
@@ -191,9 +189,14 @@ function draw() {
   }
 
   // --- draw world (affected by camera zoom) ---
+  // Anchored at the launch point so zooming feels like zooming into
+  // the action, instead of drifting relative to a fixed ground line.
   push();
-  translate(width / 2 * (1 - zoomFactor), height / 2 * (1 - zoomFactor));
+  translate(launchXPixels * (1 - zoomFactor), groundYPixels * (1 - zoomFactor));
   scale(zoomFactor);
+
+  stroke(100);
+  line(-launchXPixels / zoomFactor, groundYPixels, (width - launchXPixels) / zoomFactor + width, groundYPixels);
 
   drawTrail(proj1.trail, proj1.colorTrail);
   drawTrail(proj2.trail, proj2.colorTrail);
